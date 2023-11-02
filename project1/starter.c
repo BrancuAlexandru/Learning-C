@@ -2,5 +2,6 @@
 
 int main () {
   char character = '!';
-  printf("Hello World%c", character);
+  int asciiCode = (char)character;
+  printf("Hello World%c\nchar code = %d", character, asciiCode);
 }
