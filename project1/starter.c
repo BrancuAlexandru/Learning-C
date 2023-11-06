@@ -46,17 +46,28 @@ void main () {
     } else {
       printf("How many times do you want this to loop? (Max 10) ");
     }
-    scanf("%d", &numberOfLoops);
 
-    if (numberOfLoops <= 10) {
-      char willContinue = loop(numberOfLoops);
-      usageCount++;
-
-      if (willContinue == 'n') {
-        break;
+    if (scanf("%d", &numberOfLoops) < 1) {
+      
+      if (usageCount > 0) {
+        printf("\nERROR: Invalid input (Not a number)\n\n");
+        usageCount--;
+      } else {
+        printf("\nERROR: Invalid input (Not a number)\n\n");
       }
+      char dummy;
+      scanf("%c", &dummy);
     } else {
-      printf("\nERROR: Invalid input (Maximum value is 10)\n\n");
+      if (numberOfLoops <= 10) {
+        char willContinue = loop(numberOfLoops);
+        usageCount++;
+
+        if (willContinue == 'n') {
+          break;
+        }
+      } else {
+        printf("\nERROR: Invalid input (Maximum value is 10)\n\n");
+      }
     }
   }
 }
